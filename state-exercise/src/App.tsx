@@ -3,6 +3,7 @@ import "./App.css"
 import LightToggle from "./components/LightToggle"
 import LottoNumbers from "./components/LottoNumbers"
 import ClickCounter from "./components/ClickCounter"
+import Hola from "./components/Hola"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -10,7 +11,7 @@ function App() {
   const [lottoNumber, setLottoNumber] = useState<number[]>([
     1, 2, 3, 4, 5, 6, 7,
   ])
-
+  const [holaa,setHola]=useState("")
   const handleLightToggle = () => {
     setIsDarkMode(!isDarkMode)
   }
@@ -25,6 +26,10 @@ function App() {
       () => Math.floor(Math.random() * 50) + 1
     )
     setLottoNumber(randomNumbers)
+  }
+
+  const handleHola = () => {
+    setHola("Hola Elmer")
   }
 
   return (
@@ -53,6 +58,10 @@ function App() {
       <h2>Click Counter</h2>
       <ClickCounter onCounter={handleCounter} />
       <div className="output">{count}</div>
+
+      <h2>Greetings:</h2>
+      <Hola onHola={handleHola} />
+      <div className="output">{holaa}</div>
     </>
   )
 }
